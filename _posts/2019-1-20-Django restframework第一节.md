@@ -24,35 +24,38 @@ tags:								#标签
 
 
 3. **Django FBV、CBV**  
-```
+
 FBV,function base view
-
-	def users(request):
-		user_list = ['alex','oldboy']
-		return HttpResponse(json.dumps((user_list)))
-					
-CBV,class base view 
-
-	路由：
-		url(r'^students/', views.StudentsView.as_view()),
-	
-	视图：
-		from django.views import View
-
-		class StudentsView(View):
-
-			def get(self,request,*args,**kwargs):
-				return HttpResponse('GET')
-
-			def post(self, request, *args, **kwargs):
-				return HttpResponse('POST')
-
-			def put(self, request, *args, **kwargs):
-				return HttpResponse('PUT')
-
-			def delete(self, request, *args, **kwargs):
-				return HttpResponse('DELETE')
+```
+def users(request):
+	user_list = ['alex','oldboy']
+	return HttpResponse(json.dumps((user_list)))
 ```  
+
+CBV,class base view  
+
+路由：
+`url(r'^students/', views.StudentsView.as_view()),`
+
+视图：
+```
+from django.views import View
+
+class StudentsView(View):
+
+	def get(self,request,*args,**kwargs):
+		return HttpResponse('GET')
+
+	def post(self, request, *args, **kwargs):
+		return HttpResponse('POST')
+
+	def put(self, request, *args, **kwargs):
+		return HttpResponse('PUT')
+
+	def delete(self, request, *args, **kwargs):
+		return HttpResponse('DELETE')
+```
+
 
 4.**面向对象**  
 封装：  
