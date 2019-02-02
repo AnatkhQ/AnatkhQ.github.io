@@ -4,7 +4,7 @@ title:      Python Assert断言的应用 				# 标题
 subtitle:   断言的使用语法及使用场景 #副标题
 date:       2019-1-21 				# 时间
 author:     QQL 						# 作者
-header-img: img/concert-1838412_1920.jpg 	#这篇文章标题背景图片
+header-img: img/computer-1209641_1920.jpg 	#这篇文章标题背景图片
 catalog: true 						# 是否归档
 tags:								#标签
     - python
