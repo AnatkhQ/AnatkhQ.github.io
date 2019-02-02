@@ -7,7 +7,7 @@ author:     QQL 						# 作者
 header-img: img/concert-1838412_1920.jpg 	#这篇文章标题背景图片
 catalog: true 						# 是否归档
 tags:								#标签
-    - Python
+    - python
 ---
 
 ## python中断言assert的使用
