@@ -149,7 +149,57 @@ activate
 > 离开虚拟环境：deactivate
 
 
+### 可能会出现的一些奇怪的问题
 
+#### 1.解决pycharm问题：module 'pip' has no attribute 'main'
+
+更新pip之后，Pycharm安装package出现报错：module 'pip' has no attribute 'main'  
+
+pycharm右下角会出现错误提醒，点击Detail查看详情，里面有一个路径，访问此路径  
+找到安装目录下 helpers/packaging_tool.py文件，找到如下代码：  
+```
+def do_install(pkgs):
+    try:
+        import pip
+    except ImportError:
+        error_no_pip()
+    return pip.main(['install'] + pkgs)
+
+
+def do_uninstall(pkgs):
+    try:
+        import pip
+    except ImportError:
+        error_no_pip()
+    return pip.main(['uninstall', '-y'] + pkgs)
+```  
+
+修改为：  
+```
+def do_install(pkgs):
+    try:
+        # import pip
+        try:
+            from pip._internal import main
+        except Exception:
+            from pip import main
+    except ImportError:
+        error_no_pip()
+    return main(['install'] + pkgs)
+
+
+def do_uninstall(pkgs):
+    try:
+        # import pip
+        try:
+            from pip._internal import main
+        except Exception:
+            from pip import main
+    except ImportError:
+        error_no_pip()
+    return main(['uninstall', '-y'] + pkgs)
+
+```
 
 
 
